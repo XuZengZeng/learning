@@ -7,6 +7,40 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="toNext"
+            android:onClick="toNext"/>
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="toPre"
+            android:onClick="toPre"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="reset"
+            android:onClick="reSet"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AnimationActivity"
+            android:onClick="startAnimationActivity"/>
+
+    </LinearLayout>
+
+
     <TextView
         android:id="@+id/hello_world"
         android:layout_width="wrap_content"

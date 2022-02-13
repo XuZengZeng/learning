@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".flutter.FlutterTestActivity" />
+        <activity android:name=".AnimationActivity" />
     </application>
 
 </manifest>
