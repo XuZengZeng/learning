@@ -16,8 +16,8 @@ import com.xxlls.learning.widget.AnimatorGroupView
  */
 class AnimationActivity : AppCompatActivity() {
 
-    lateinit var view_200: View
-    lateinit var view_300: View
+    lateinit var view_3: View
+    lateinit var view_2: View
     lateinit var animator_group: AnimationChangeGroupView
 
 
@@ -26,10 +26,31 @@ class AnimationActivity : AppCompatActivity() {
         setContentView(R.layout.activity_animation)
 
         initView()
+        addEvent()
+    }
+
+    private fun addEvent() {
+        view_2.setOnClickListener {
+            if (view_3.visibility == View.VISIBLE) {
+                view_3.visibility = View.GONE
+            } else {
+                view_3.visibility = View.VISIBLE
+            }
+        }
+
+        view_3.setOnClickListener {
+            if (view_2.visibility == View.VISIBLE) {
+                view_2.visibility = View.GONE
+            } else {
+                view_2.visibility = View.VISIBLE
+            }
+        }
     }
 
     private fun initView() {
         animator_group = findViewById<AnimationChangeGroupView>(R.id.animator_group)
+        view_2 = findViewById(R.id.view_3_2)
+        view_3 = findViewById(R.id.view_3_1)
     }
 
 
@@ -46,6 +67,7 @@ class AnimationActivity : AppCompatActivity() {
     }
 
     fun toPre(view: View) {
+
         animator_group.back()
     }
 }

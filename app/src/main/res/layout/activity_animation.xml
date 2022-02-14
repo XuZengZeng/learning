@@ -68,10 +68,11 @@
                     android:text="1234567890"/>
 
                 <TextView
+                    android:id="@+id/view_3_1"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:gravity="center_vertical"
-                    android:text="1234567890"/>
+                    android:text="123----->>>>>33333"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -151,10 +152,11 @@
 
 
                 <TextView
+                    android:id="@+id/view_3_2"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:gravity="center_vertical"
-                    android:text="1234567890"/>
+                    android:text="12321====>>>>333"/>
 
                 <TextView
                     android:layout_width="wrap_content"
