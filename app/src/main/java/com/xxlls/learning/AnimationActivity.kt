@@ -1,13 +1,11 @@
 package com.xxlls.learning
 
-import android.animation.ObjectAnimator
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.xxlls.learning.widget.AnimationChangeGroupView
-import com.xxlls.learning.widget.AnimatorGroupView
 
 /**
  * @Date 2/9/22

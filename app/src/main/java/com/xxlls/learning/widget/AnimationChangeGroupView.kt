@@ -37,15 +37,7 @@ class AnimationChangeGroupView @JvmOverloads constructor(
      * @return true 安全，false
      */
     // 安全执行时间，避免动画短时间内多次执行
-    private val isVerifyTime = 1000L
-        private get() {
-            val currentTimeMillis = System.currentTimeMillis()
-            if (currentTimeMillis - preTimeMillis > field) {
-                preTimeMillis = currentTimeMillis
-                return true
-            }
-            return false
-        }
+    private var verifyTime = 1000L
 
     // 上一次执行动画的时间
     private var preTimeMillis = 0L
@@ -162,7 +154,7 @@ class AnimationChangeGroupView @JvmOverloads constructor(
             val curView = getChildAt(curIndex)
             val nextView = getChildAt(nextIndex)
             // 开始执行动画
-            if (curView != null && nextView != null && isVerifyTime
+            if (curView != null && nextView != null && isVerifyTime()
             ) {
                 nextAnimator(nextView, curView)
                 curIndex++
@@ -180,7 +172,7 @@ class AnimationChangeGroupView @JvmOverloads constructor(
             val curView = getChildAt(curIndex)
             val nextView = getChildAt(backIndex)
             // 开始执行动画
-            if (curView != null && nextView != null && isVerifyTime
+            if (curView != null && nextView != null && isVerifyTime()
             ) {
                 backAnimator(nextView, curView)
                 curIndex--
@@ -262,6 +254,19 @@ class AnimationChangeGroupView @JvmOverloads constructor(
      * @return 检测index 是否合法
      */
     private fun isVerifyIndex(index: Int): Boolean {
-        return index < childCount && index >= 0
+        return index in 0 until childCount
+    }
+
+    /**
+     * 是否是安全时间,避免短时间内动画执行多次
+     * @return true 安全，false
+     */
+    private fun isVerifyTime(): Boolean {
+        val currentTimeMillis = System.currentTimeMillis()
+        if (currentTimeMillis - preTimeMillis > verifyTime) {
+            preTimeMillis = currentTimeMillis
+            return true
+        }
+        return false
     }
 }
