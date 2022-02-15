@@ -21,6 +21,7 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/cur_title"
                 android:layout_width="match_parent"
                 android:layout_height="44dp"
                 android:gravity="center_vertical"

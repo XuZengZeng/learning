@@ -32,12 +32,15 @@ class AnimationChangeGroupView @JvmOverloads constructor(
     // 动画是否正在执行
     private var isAnimator = false
 
-    /**
-     * 是否是安全时间
-     * @return true 安全，false
-     */
-    // 安全执行时间，避免动画短时间内多次执行
-    private var verifyTime = 1000L
+    companion object {
+        const val ANIMATOR_DURATION = 300L
+
+        /**
+         * 是否是安全时间
+         * 安全执行时间，避免动画短时间内多次执行
+         */
+        const val VERIFY_TIME = ANIMATOR_DURATION + 100L
+    }
 
     // 上一次执行动画的时间
     private var preTimeMillis = 0L
@@ -195,24 +198,21 @@ class AnimationChangeGroupView @JvmOverloads constructor(
         val alpha = PropertyValuesHolder.ofFloat("alpha", 0f, 1f)
         nextView.pivotY = nextView.height.toFloat()
         val nextAnimator = ObjectAnimator.ofPropertyValuesHolder(nextView, translationX, alpha)
-        nextAnimator.duration = 300
-        nextAnimator.interpolator = DecelerateInterpolator()
+        nextAnimator.duration = ANIMATOR_DURATION
         nextAnimator.start()
 
         // 执行curView 的退出动画 （向左移动一个屏幕的距离，透明渐变 0 - 1）
         val curTranslationX = PropertyValuesHolder.ofFloat("translationX", -childMaxWidth.toFloat())
         val curAlpha = PropertyValuesHolder.ofFloat("alpha", 1f, 0f)
         val curAnimator = ObjectAnimator.ofPropertyValuesHolder(curView, curTranslationX, curAlpha)
-        curAnimator.duration = 600
-        curAnimator.interpolator = DecelerateInterpolator()
+        curAnimator.duration = ANIMATOR_DURATION
         curAnimator.start()
 
         // 操作当前控件改变高度
         val scaleYAnimator = ValueAnimator.ofInt(curHeight, otherHeight)
         scaleYAnimator.addUpdateListener(animatorUpdateListener)
         scaleYAnimator.addListener(animatorListener)
-        scaleYAnimator.duration = 300
-        scaleYAnimator.interpolator = DecelerateInterpolator()
+        scaleYAnimator.duration = ANIMATOR_DURATION
         scaleYAnimator.start()
     }
 
@@ -226,14 +226,13 @@ class AnimationChangeGroupView @JvmOverloads constructor(
         val translationX = PropertyValuesHolder.ofFloat("translationX", 0f)
         val alpha = PropertyValuesHolder.ofFloat("alpha", 0f, 1f)
         val nextAnimator = ObjectAnimator.ofPropertyValuesHolder(backView, translationX, alpha)
-        nextAnimator.duration = 300
-        nextAnimator.interpolator = DecelerateInterpolator()
+        nextAnimator.duration = ANIMATOR_DURATION
         nextAnimator.start()
-        val curTranslationX = PropertyValuesHolder.ofFloat("translationX", childMaxWidth.toFloat())
+
+        val curTranslationX = PropertyValuesHolder.ofFloat("translationX", 0f)
         val curAlpha = PropertyValuesHolder.ofFloat("alpha", 1f, 0f)
         val curAnimator = ObjectAnimator.ofPropertyValuesHolder(curView, curTranslationX, curAlpha)
-        curAnimator.duration = 600
-        curAnimator.interpolator = DecelerateInterpolator()
+        curAnimator.duration = ANIMATOR_DURATION
         curAnimator.start()
         val curHeight = curView.measuredHeight
         val otherHeight = backView.measuredHeight
@@ -242,8 +241,7 @@ class AnimationChangeGroupView @JvmOverloads constructor(
         val scaleYAnimator = ValueAnimator.ofInt(curHeight, otherHeight)
         scaleYAnimator.addUpdateListener(animatorUpdateListener)
         scaleYAnimator.addListener(animatorListener)
-        scaleYAnimator.duration = 300
-        scaleYAnimator.interpolator = DecelerateInterpolator()
+        scaleYAnimator.duration = ANIMATOR_DURATION
         scaleYAnimator.start()
     }
 
@@ -263,7 +261,7 @@ class AnimationChangeGroupView @JvmOverloads constructor(
      */
     private fun isVerifyTime(): Boolean {
         val currentTimeMillis = System.currentTimeMillis()
-        if (currentTimeMillis - preTimeMillis > verifyTime) {
+        if (currentTimeMillis - preTimeMillis > VERIFY_TIME) {
             preTimeMillis = currentTimeMillis
             return true
         }
