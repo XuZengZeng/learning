@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.xxlls.learning.flutter.FlutterTestActivity
+import com.xxlls.learning.ui_test.RecyclerViewActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,7 +23,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun startAnimationActivity(view: View) {
-        AnimationActivity.start(this)
+//        AnimationActivity.start(this)
+    }
+
+
+    fun startRecyclerViewActivity(view: View) {
+        RecyclerViewActivity.start(this)
     }
 
 }

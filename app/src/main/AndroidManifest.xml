@@ -18,6 +18,7 @@
         </activity>
         <activity android:name=".flutter.FlutterTestActivity" />
         <activity android:name=".AnimationActivity" />
+        <activity android:name=".ui_test.RecyclerViewActivity" />
     </application>
 
 </manifest>
