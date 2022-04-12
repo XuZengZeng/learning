@@ -5,6 +5,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.xxlls.learning.flutter.FlutterTestActivity
 import com.xxlls.learning.ui_test.RecyclerViewActivity
+import com.xxlls.learning.ui_test.ShareActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,12 +24,19 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun startAnimationActivity(view: View) {
-//        AnimationActivity.start(this)
+        AnimationActivity.start(this)
     }
 
 
     fun startRecyclerViewActivity(view: View) {
         RecyclerViewActivity.start(this)
+    }
+
+    /**
+     * 跳转分享
+     */
+    fun startShareActivity(view: View) {
+        ShareActivity.start(this)
     }
 
 }
