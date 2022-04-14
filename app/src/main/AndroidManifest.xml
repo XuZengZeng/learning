@@ -10,6 +10,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Learning">
+        <service
+            android:name=".service.RemoteService"
+            android:process=":remote"
+            android:enabled="true"
+            android:exported="true">
+
+        </service>
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,16 +28,14 @@
         <activity android:name=".flutter.FlutterTestActivity" />
         <activity android:name=".AnimationActivity" />
         <activity android:name=".ui_test.RecyclerViewActivity" />
-        <activity android:name=".ui_test.ShareActivity" />
-
-        <!--    注册Twitter 分享    -->
+        <activity android:name=".ui_test.ShareActivity" /> <!-- 注册Twitter 分享 -->
         <receiver
             android:name=".receiver.TwitterShareResultReceiver"
             android:exported="false">
             <intent-filter>
-                <action android:name="com.twitter.sdk.android.tweetcomposer.UPLOAD_SUCCESS"/>
-                <action android:name="com.twitter.sdk.android.tweetcomposer.UPLOAD_FAILURE"/>
-                <action android:name="com.twitter.sdk.android.tweetcomposer.TWEET_COMPOSE_CANCEL"/>
+                <action android:name="com.twitter.sdk.android.tweetcomposer.UPLOAD_SUCCESS" />
+                <action android:name="com.twitter.sdk.android.tweetcomposer.UPLOAD_FAILURE" />
+                <action android:name="com.twitter.sdk.android.tweetcomposer.TWEET_COMPOSE_CANCEL" />
             </intent-filter>
         </receiver>
     </application>
