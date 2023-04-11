@@ -1,24 +1,38 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 33
     buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.xxlls.learning"
         minSdkVersion 16
-        targetSdkVersion 30
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        kapt {
+            arguments {
+                arg("AROUTER_MODULE_NAME", project.getName())
+            }
+        }
     }
 
     buildTypes {
         release {
+            debuggable false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            debuggable true
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -47,4 +61,8 @@ dependencies {
 
     implementation 'com.twitter.sdk.android:twitter:3.1.1'             //twitter分享
     implementation 'com.twitter.sdk.android:tweet-composer:3.1.1'      //twitter分享，发布推文
+
+    // ARoute
+    implementation 'com.alibaba:arouter-api:1.5.2'
+    kapt 'com.alibaba:arouter-compiler:1.5.2'
 }

@@ -5,6 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.alibaba.android.arouter.facade.annotation.Route
+import com.xxlls.learning.route.RouteConst
 import com.xxlls.learning.widget.AnimationChangeGroupView
 
 /**
@@ -12,6 +14,7 @@ import com.xxlls.learning.widget.AnimationChangeGroupView
  * @Aurth xuzengzeng
  * @Desceiption
  */
+@Route(path = RouteConst.APP_ANIMATION, extras = RouteConst.LOGIN_EXTRA)
 class AnimationActivity : AppCompatActivity() {
 
     lateinit var view_3: View

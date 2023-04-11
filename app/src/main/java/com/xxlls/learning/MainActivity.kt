@@ -3,7 +3,10 @@ package com.xxlls.learning
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.alibaba.android.arouter.launcher.ARouter
 import com.xxlls.learning.flutter.FlutterTestActivity
+import com.xxlls.learning.route.RouteConst
+import com.xxlls.learning.route.RouteHelper
 import com.xxlls.learning.ui_test.RecyclerViewActivity
 import com.xxlls.learning.ui_test.ShareActivity
 
@@ -24,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun startAnimationActivity(view: View) {
-        AnimationActivity.start(this)
+        RouteHelper.linkJump(this, RouteConst.getInnerRouteUrl(RouteConst.APP_ANIMATION))
     }
 
 

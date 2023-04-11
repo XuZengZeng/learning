@@ -19,3 +19,16 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+# ********************************* 公共混淆配置 *******************************************
+
+
+
+# ********************************* 第三方库混淆配置 *******************************************
+
+# ARouter 混淆配置
+-keep class * implements com.alibaba.android.arouter.facade.template.IProvider{*;}
+-keep class * implements com.alibaba.android.arouter.facade.template.IInterceptor{*;}
+-keep public class com.alibaba.android.arouter.routes.**{*;}
+-keep public class com.alibaba.android.arouter.facade.**{*;}
+-keep class * implements com.alibaba.android.arouter.facade.template.ISyringe{*;}
+-keep class * implements com.aex.exchanges.route.**{*;}
