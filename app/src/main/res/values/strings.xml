@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">learning</string>
+    <string name="cancel">取消</string>
 
     <string name="com.twitter.sdk.android.CONSUMER_KEY">8IpJ2ayxAjp0mFcqmA2Yj2DMG</string>
     <string name="com.twitter.sdk.android.CONSUMER_SECRET">UgXGpBg9JQYCNZZ6yeoS2AWWpOZvAXTcaN7IFtx0BwUOsuOmOa</string>

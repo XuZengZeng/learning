@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.xxlls.learning">
 
+    <!--  生物识别权限  -->
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+
     <application
         android:name=".base.BaseApplication"
         android:allowBackup="true"
@@ -12,13 +15,14 @@
         android:theme="@style/Theme.Learning">
         <service
             android:name=".service.RemoteService"
-            android:process=":remote"
             android:enabled="true"
-            android:exported="true">
+            android:exported="true"
+            android:process=":remote">
 
         </service>
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,7 +32,9 @@
         <activity android:name=".flutter.FlutterTestActivity" />
         <activity android:name=".AnimationActivity" />
         <activity android:name=".ui_test.RecyclerViewActivity" />
-        <activity android:name=".ui_test.ShareActivity" /> <!-- 注册Twitter 分享 -->
+        <!-- 注册Twitter 分享 -->
+        <activity android:name=".ui_test.ShareActivity" />
+        <activity android:name=".verify.VerifyActivity" />
         <receiver
             android:name=".receiver.TwitterShareResultReceiver"
             android:exported="false">

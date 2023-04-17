@@ -65,4 +65,6 @@ dependencies {
     // ARoute
     implementation 'com.alibaba:arouter-api:1.5.2'
     kapt 'com.alibaba:arouter-compiler:1.5.2'
+    // 生物识别
+    implementation 'androidx.biometric:biometric:1.2.0-alpha05'
 }

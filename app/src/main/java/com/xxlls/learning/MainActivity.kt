@@ -42,4 +42,8 @@ class MainActivity : AppCompatActivity() {
         ShareActivity.start(this)
     }
 
+    fun openVerifyActivity(view: View) {
+        ARouter.getInstance().build(RouteConst.APP_VERIFY).navigation()
+    }
+
 }

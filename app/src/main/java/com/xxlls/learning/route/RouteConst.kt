@@ -44,6 +44,11 @@ class RouteConst {
          */
         const val APP_ANIMATION: String = "$BASE_GROUP_NAME/home/animation"
 
+        /**
+         * 安全验证页面
+         */
+        const val APP_VERIFY: String = "$BASE_GROUP_NAME/home/verify"
+
 
         /**
          * 登录拦截
