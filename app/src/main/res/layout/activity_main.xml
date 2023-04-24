@@ -39,6 +39,23 @@
             android:text="openVerify"
             android:onClick="openVerifyActivity"/>
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="googleLogin"
+            android:onClick="googleLogin"/>
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/sign_in_button"
+            android:layout_width="129dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="141dp"
+            android:layout_marginTop="252dp"
+            android:layout_marginEnd="141dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
     </LinearLayout>
 
 
