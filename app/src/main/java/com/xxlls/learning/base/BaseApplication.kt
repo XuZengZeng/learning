@@ -8,8 +8,14 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.twitter.sdk.android.core.Twitter
 
 class BaseApplication : Application() {
+
+    companion object {
+        lateinit var instance: BaseApplication
+    }
     override fun onCreate() {
         super.onCreate()
+
+        instance = this
         //初始化Twitter
         Twitter.initialize(this)
         if (Build.VERSION.SDK_INT >= 24) {
